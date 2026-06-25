@@ -11,6 +11,47 @@
             background: #0a0c10;
             color: #e2e8f0;
         }
+
+        /* スクロールバナー */
+        .scroll-banner {
+            background: #050709;
+            border-bottom: 1px solid #1e293b;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 8px 0;
+        }
+        .scroll-track {
+            display: inline-block;
+            animation: scroll-left 30s linear infinite;
+        }
+        .scroll-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .scroll-item {
+            display: inline-block;
+            margin-right: 48px;
+            font-size: 12px;
+        }
+        .scroll-name {
+            color: #64748b;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-right: 6px;
+        }
+        .scroll-value {
+            color: #ffffff;
+            font-weight: 700;
+            margin-right: 6px;
+        }
+        .scroll-change {
+            font-size: 11px;
+        }
+
+        /* ヘッダー */
         .site-header {
             background: #0a0c10;
             border-bottom: 1px solid #1e293b;
@@ -44,12 +85,14 @@
             border-top: 1px solid #1e293b;
             padding-top: 10px;
         }
+
+        /* ティッカーグリッド */
         .ticker-bar {
             background: #0d1117;
             border-bottom: 1px solid #1e293b;
             padding: 16px 40px;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 16px;
         }
         .ticker-name {
@@ -60,7 +103,7 @@
             margin-bottom: 4px;
         }
         .ticker-value {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             color: #ffffff;
             letter-spacing: -0.5px;
@@ -69,6 +112,7 @@
             font-size: 12px;
             margin-top: 2px;
         }
+
         .main { max-width: 1100px; margin: 0 auto; padding: 32px 40px; }
         .section { margin-bottom: 40px; }
         .section-title {
@@ -210,12 +254,19 @@
     </style>
 </head>
 <body>
+    <div class="scroll-banner">
+        <div class="scroll-track">
+            <span class="scroll-item"><span class="scroll-name">DOW</span> <span class="scroll-value">51,848.90</span> <span class="scroll-change" style="color:#34d399">+182.06 (+0.35%)</span></span><span class="scroll-item"><span class="scroll-name">S&P 500</span> <span class="scroll-value">7,358.22</span> <span class="scroll-change" style="color:#f87171">-7.24 (-0.10%)</span></span><span class="scroll-item"><span class="scroll-name">NASDAQ</span> <span class="scroll-value">25,476.64</span> <span class="scroll-change" style="color:#f87171">-110.40 (-0.43%)</span></span><span class="scroll-item"><span class="scroll-name">BITCOIN</span> <span class="scroll-value">61,293.03</span> <span class="scroll-change" style="color:#34d399">+297.90 (+0.49%)</span></span><span class="scroll-item"><span class="scroll-name">SOX</span> <span class="scroll-value">13,458.20</span> <span class="scroll-change" style="color:#f87171">-24.31 (-0.18%)</span></span>
+            <span class="scroll-item"><span class="scroll-name">DOW</span> <span class="scroll-value">51,848.90</span> <span class="scroll-change" style="color:#34d399">+182.06 (+0.35%)</span></span><span class="scroll-item"><span class="scroll-name">S&P 500</span> <span class="scroll-value">7,358.22</span> <span class="scroll-change" style="color:#f87171">-7.24 (-0.10%)</span></span><span class="scroll-item"><span class="scroll-name">NASDAQ</span> <span class="scroll-value">25,476.64</span> <span class="scroll-change" style="color:#f87171">-110.40 (-0.43%)</span></span><span class="scroll-item"><span class="scroll-name">BITCOIN</span> <span class="scroll-value">61,293.03</span> <span class="scroll-change" style="color:#34d399">+297.90 (+0.49%)</span></span><span class="scroll-item"><span class="scroll-name">SOX</span> <span class="scroll-value">13,458.20</span> <span class="scroll-change" style="color:#f87171">-24.31 (-0.18%)</span></span>
+        </div>
+    </div>
+
     <header class="site-header">
         <div class="header-top">
             <div class="logo">AI MARKET <span>WIRE</span></div>
             <div class="header-meta">
                 2026.06.25 (THU)<br>
-                20:35 JST<br>
+                21:53 JST<br>
                 <span class="live">● 自動生成レポート</span>
             </div>
         </div>
@@ -244,8 +295,14 @@
         
         <div class="ticker-item">
             <div class="ticker-name">BITCOIN</div>
-            <div class="ticker-value">61,170.10</div>
-            <div class="ticker-change" style="color:#34d399">+174.97 · +0.29%</div>
+            <div class="ticker-value">61,293.03</div>
+            <div class="ticker-change" style="color:#34d399">+297.90 · +0.49%</div>
+        </div>
+        
+        <div class="ticker-item">
+            <div class="ticker-name">SOX</div>
+            <div class="ticker-value">13,458.20</div>
+            <div class="ticker-change" style="color:#f87171">-24.31 · -0.18%</div>
         </div>
         
     </div>
@@ -260,7 +317,7 @@
                     <span class="tag">MARKET</span>
                 </div>
                 <h2 class="story-title">SEMICONDUCTOR SECTOR SOX INDEX MARKET NEWS TODAY</h2>
-                <p class="story-body">フィラデルフィア半導体指数（SOX）が13,458付近で一進一退を続けている。過去13日間で約30%上昇し、2002年以来最大の急騰劇を演じた直後、直近金曜日には5%超の急落を記録。強気と弱気の論拠が交錯する、判断の難しい局面に差し掛かっている。 --- | 指標 | 数値 |</p>
+                <p class="story-body">**SOX（フィラデルフィア半導体指数）は現在13,458ポイント付近で推移**。過去13日間で30%急騰し52週高値を更新した一方、直近では1日で5%超の急落も発生。投資家は「AIスーパーサイクルの本物の夜明け」と「2000年型バブルの再来」という相反するシナリオの前に立たされている。 --- | 指標 | 数値 | 評価 |</p>
             </div>
         </section>
         
@@ -271,25 +328,25 @@
             <div class="mover-card">
                 <div class="tag-row"><span class="tag">GOLD SILVER PRECIOUS METALS MARKET NEWS </span></div>
                 <div class="mover-title">gold silver precious metals market news today</div>
-                <p class="mover-body">**2026年6月25日** 金価格が1.7%超下落し、2025年11月以来初めて1トロイオンス4,000ドルを割り込んだ。銀は5%超の急落となり、貴金属市場全体が調整圧力にさらされている。ただし価格データはソースによって乖離があり（金3,986〜4,080ドル、銀57〜64ドル）、異なる取引時間・現物バーとスポット価格の混在が一因とみられる点は割り引いて読む必要がある。</p>
+                <p class="mover-body">**2026年6月25日** 金と銀の価格が大幅な調整局面を迎えている。金は前週比5%超、銀は13.5%超の下落を記録し、6月25日正午（UTC）時点の金スポット価格はビッド**3,990.70ドル**、銀は**57.21ドル**まで下落した。</p>
             </div>
             
             <div class="mover-card">
                 <div class="tag-row"><span class="tag">SPACE INDUSTRY STOCKS MARKET NEWS TODAY</span></div>
                 <div class="mover-title">space industry stocks market news today</div>
-                <p class="mover-body">2026年に入り、宇宙産業株が力強い上昇モメンタムを示している。Rocket Lab（RKLB）、AST SpaceMobile（ASTS）、Intuitive Machines（LUNR）が上昇をけん引し、衛星ネットワーク需要の拡大と打ち上げコスト低下が追い風となっている。ただし、華やかな成長ストーリーの裏側には、投資家が冷静に見極めるべき構造的なリスクが潜む。 | 銘柄 | 株価（概算） | </p>
+                <p class="mover-body">2026年、宇宙産業株式市場は強い上昇基調にある。だが、熱狂の裏側を精査すると、投資判断を誤らせかねない"見えないリスク"が複数浮かび上がる。 ---</p>
             </div>
             
             <div class="mover-card">
                 <div class="tag-row"><span class="tag">US ECONOMIC POLICY FED INTEREST RATES CP</span></div>
                 <div class="mover-title">US economic policy Fed interest rates CPI NFP PCE market impact today</div>
-                <p class="mover-body">**2026年6月** — 米連邦準備制度理事会（FRB）は6月会合で政策金利を**3.50〜3.75%**に据え置いた。ただしケビン・ウォーシュ新議長のもと声明はタカ派色を強め、インフレが「想定より粘着的」との認識を「明確かつ全会一致」で表明した。先物市場は**10月の利上げを完全に織り込み**、2026年内の利下げ期待は消滅した。 ---</p>
+                <p class="mover-body">**【重要免責事項】本記事は2026年6月を舞台とした仮説的シナリオに基づく分析です。登場する数値・人名・政策判断は現実（2025年時点）と異なります。投資判断の際は実際のデータをご確認ください。** ---</p>
             </div>
             
             <div class="mover-card">
                 <div class="tag-row"><span class="tag">BITCOIN CRYPTOCURRENCY MARKET NEWS TODAY</span></div>
                 <div class="mover-title">Bitcoin cryptocurrency market news today</div>
-                <p class="mover-body">ビットコイン（BTC）は主要サポートラインとして注目されてきた**6万ドルを割り込み**、約59,023ドルまで下落した。直近24時間で3.10%安、週間では5.80%安と、暗号資産市場全体の下落率（2.20%）を大幅に上回るアンダーパフォームが続いている。 ---</p>
+                <p class="mover-body">ビットコイン（BTC）は直近24時間で約3.1%下落し、6万729ドル付近と2024年10月以来の安値圏に沈んだ。暗号資産市場全体の下落率（2.2〜3.5%）を上回るアンダーパフォームが続いており、BTCが市場の下落を主導する異例の展開となっている。 ---</p>
             </div>
             </div>
         </section>
@@ -301,7 +358,7 @@
             <div class="detail-header">SEMICONDUCTOR SECTOR SOX INDEX MARKET NEWS TODAY</div>
             <div class="detail-body">
                 <div class="detail-section">
-                    <div class="detail-content"><h3>半導体株、30%急騰後の岐路——SOXに灯る過熱シグナルとAI成長の持続性</h3><br><br>フィラデルフィア半導体指数（SOX）が13,458付近で一進一退を続けている。過去13日間で約30%上昇し、2002年以来最大の急騰劇を演じた直後、直近金曜日には5%超の急落を記録。強気と弱気の論拠が交錯する、判断の難しい局面に差し掛かっている。<br><br><hr><br><br><h3>主要データ</h3><br><br><table><tr><th>指標</th><th>数値</th></tr><tr><td>現在値</td><td>13,458.2</td></tr><tr><td>日中値幅</td><td>13,115.8 〜 13,597.4</td></tr><tr><td>13日間騰落</td><td>+30%（2002年以来最大）</td></tr><tr><td>年初来騰落</td><td>+90%</td></tr><tr><td>50日移動平均比</td><td>+16%（過熱警戒域）</td></tr><tr><td>統計的下落確率</td><td>5日後にマイナス85%（詳細後述）</td></tr><tr><td>主要牽引株</td><td>AMD +242%、Micron +41%、Broadcom +38%</td></tr></table><br><br><hr><br><br><h3>上昇を支える実需の厚み</h3><br><br>今回の急騰はAI投機だけでなく、企業業績という実体を伴っている点は無視できない。TSMCは2024年第1四半期に売上高が前年同期比35%増と過去最高を更新。Nvidiaのデータセンター向け売上も急拡大しており、半導体在庫調整が2022〜2023年にかけて一巡し、需要回復局面に入ったとの見方も根強い。<br><br>ただし「AI需要は構造的」という前提には慎重な精査が必要だ。多くの企業がAIインフラへ巨額投資を行っているが、ROI（投資対効果）の証明はいまだ途上にある。Nvidiaへの需要集中も、AMDや自社開発チップの台頭によって崩れるリスクをはらむ。好決算が即「割安」を意味しないことも、現在の高PER水準を踏まえれば自明だ。<br><br><hr><br><br><h3>テクニカル過熱と統計の読み方</h3><br><br>50日移動平均を16%上回る現水準は、過去データでは「5日後に85%の確率でマイナスリターン、中央値-3.64%」とされる。しかしこの統計にはいくつかの留保が必要だ。2002年以来の類似ケース数が開示されておらず、仮にサンプルが10件未満であれば統計的信頼性は極めて低い。また「5日後」という区切りの根拠も不明で、10日・20日では数値が大幅に異なる可能性がある。中央値-3.64%は年初来+90%の上昇幅と比較すれば誤差に近い水準であり、数字を過大評価しないことが重要だ。<br><br>ボラティリティが2000年のドットコムバブル期と類似しているとの指摘も、当時との相違点——実需の存在、利益水準の厚み——を考慮せずそのまま適用するのは危険である。<br><br><hr><br><br><h3>見落とされがちな構造リスク</h3><br><br>分析で見過ごされやすいが、売買判断に直結する変数がある。米中半導体輸出規制の強化は中長期的に市場を分断し、中国の国産化加速はSOX構成銘柄の市場シェアを侵食しうる。台湾海峡リスクはTSMCへの依存度が高い現在の供給チェーンにとって構造的な脆弱点だ。さらにドル高局面では海外売上比率の高い半導体企業の収益が目減りする点も織り込みが必要となる。<br><br><hr><br><br><h3>強気・弱気シナリオ</h3><br><br><strong>強気シナリオ</strong>：データセンター投資が2026年まで拡大し、在庫調整後の需要回復が持続。直近の下落は利益確定に伴う健全な押し目となり、押し目買いが再び機能する。<br><br><strong>弱気シナリオ</strong>：AIへの過剰投資が顕在化し、設備投資サイクルが急減速。米国債利回り上昇がバリュエーション圧縮を加速し、過熱からの調整が数週間単位で継続する。<br><br>短期のテクニカルリスクは高い一方、長期の構造成長を単純否定しにくいのも事実。両シナリオへの目配りが今最も求められる。</div>
+                    <div class="detail-content"><h3>SOX急騰30%の死角——AIバブル警戒と構造的成長の間で</h3><br><br><strong>SOX（フィラデルフィア半導体指数）は現在13,458ポイント付近で推移</strong>。過去13日間で30%急騰し52週高値を更新した一方、直近では1日で5%超の急落も発生。投資家は「AIスーパーサイクルの本物の夜明け」と「2000年型バブルの再来」という相反するシナリオの前に立たされている。<br><br><hr><br><br><h3>主要データ</h3><br><br><table><tr><th>指標</th><th>数値</th><th>評価</th></tr><tr><td>SOX現値</td><td>13,458</td><td>52週高値圏</td></tr><tr><td>13日間上昇率</td><td>+30%</td><td>2002年以来最大</td></tr><tr><td>50日移動平均乖離</td><td>+16%</td><td>テクニカル過熱域</td></tr><tr><td>過去類似局面後5日間下落確率</td><td>85%・中央値▲3.64%</td><td>※サンプル数・定義基準は非開示</td></tr><tr><td>TSMC Q1売上高 前年比</td><td>+35%</td><td>ガイダンス超え</td></tr></table><br><br><hr><br><br><h3>強気シナリオ</h3><br><br>TSMCの第1四半期売上高は前年比35%増の1兆1,340億台湾ドルとガイダンスを上回り、AIインフラ投資の持続を示した。Nvidia +22%、AMD +242%（計測期間注意）、Micron +41%、Broadcom +38%と主要銘柄が軒並み急伸。MicrosoftやGoogle、Metaなど超大型クラウド企業のCapEx計画も依然拡大基調にあり、AI向け半導体需要の構造的成長を裏付ける。アナリストのトム・ホワイト氏は直近の下落を「堅調な決算後の健全な調整」と評価している。<br><br><hr><br><br><h3>弱気シナリオと見落とされがちなリスク</h3><br><br>一方で看過できない死角が複数存在する。まず「85%の下落確率」という統計は、サンプルサイズや「類似局面」の定義が非開示であり、数字の精度そのものを疑う必要がある。最後に類似パターンが出現したのは<strong>2000年3月、ドットコムバブルの天井</strong>だったという事実は重い。<br><br>需要面でも懸念が残る。TSMCの好決算はあくまで過去の数字であり、AI向け半導体顧客（NvidiaやAMDなど）の在庫水準や、HBM（高帯域幅メモリ）の供給制約がいつ顕在化するかは不透明だ。非AI分野（PC・スマートフォン・自動車）の在庫循環も回復途上にある。<br><br>さらに<strong>地政学リスク</strong>が分析から丸ごと抜け落ちやすい点に注意が必要だ。台湾海峡問題と対中輸出規制は、TSMCを頂点とする半導体サプライチェーンに対する構造的な脅威であり続けている。米国債利回りの上昇方向性やFRBの利下げ時期をめぐる不確実性も、グロース株のバリュエーションを継続的に圧迫する要因だ。<br><br><hr><br><br><h3>投資判断への示唆</h3><br><br>重要なのは<strong>時間軸の整理</strong>だ。短期（〜3ヶ月）ではテクニカル過熱とセンチメントの揺り戻しリスクが優勢。中期（〜1年）では決算サイクルと在庫調整の行方が焦点。長期（3年超）ではAIインフラ投資の構造的成長テーマは依然有効と見る向きが多い。<br><br>業績の本物性は認めつつも、現在の株価は相当程度の楽観を先取りしている。既存ポジションの保有者は利益確定の時間軸を意識し、新規参入を検討する投資家は段階的なアプローチが現実的な局面といえる。</div>
                 </div>
             </div>
         </div>
@@ -310,7 +367,7 @@
             <div class="detail-header">GOLD SILVER PRECIOUS METALS MARKET NEWS TODAY</div>
             <div class="detail-body">
                 <div class="detail-section">
-                    <div class="detail-content"><h3>金・銀が急落、4,000ドル割れ——PCEが次の分岐点</h3><br><br><strong>2026年6月25日</strong><br><br>金価格が1.7%超下落し、2025年11月以来初めて1トロイオンス4,000ドルを割り込んだ。銀は5%超の急落となり、貴金属市場全体が調整圧力にさらされている。ただし価格データはソースによって乖離があり（金3,986〜4,080ドル、銀57〜64ドル）、異なる取引時間・現物バーとスポット価格の混在が一因とみられる点は割り引いて読む必要がある。<br><br><h3>本日の主要データ</h3><br><br><table><tr><th>指標</th><th>水準</th><th>変化率</th><th>備考</th></tr><tr><td>金（スポット）</td><td>約3,986〜4,080ドル</td><td>−1.7〜−4.5%</td><td>4,000ドル割れ</td></tr><tr><td>銀（スポット）</td><td>約57〜64ドル</td><td>−5.4%（日中値幅は最大−13%超）</td><td>金より大幅安</td></tr><tr><td>金銀比価</td><td>約67倍</td><td>—</td><td>リスクオフ度の診断指標</td></tr><tr><td>金の対ATH下落率</td><td>過去最高値5,589ドル比</td><td>約−27〜−29%</td><td>数値は出典・時点に注意</td></tr></table><br><br>※過去最高値5,589ドルと「4,000ドル割れ＝−27%」は厳密には整合しない面があり、異なる時点・種別の数値が混在している可能性がある。<br><br><h3>下落の主因</h3><br><br>最大の売り圧力は<strong>FRBの追加利上げ観測の強まり</strong>だ。バンク・オブ・アメリカは3回の利上げを予測しており、金利上昇は無利子資産である金・銀の機会費用を高める。ここで見落とせないのが<strong>実質金利</strong>と<strong>ドル指数（DXY）</strong>だ。金の理論価格を決定するのは名目金利ではなく実質金利であり、インフレ連動債（TIPS）利回りの動向が今後の値動きの鍵を握る。DXYとの逆相関も依然として強く、ドル高が続けば下押し圧力は持続しやすい。<br><br>半導体株の強制ロスカットが貴金属への連鎖売りを誘発したとの見方もあるが、<strong>これは仮説段階</strong>であり、実際の資金フローデータによる裏付けは現時点で確認できていない。相関を因果と混同しないよう注意が必要だ。<br><br>銀の下落率が金を大幅に上回る点は、工業需要(太陽光パネル・EV向け)という独自ファンダメンタルズを持つ銀が、リスクオフ局面でより投機的な売りを集めやすい構造を示している。<br><br><h3>強気・弱気シナリオ</h3><br><br><strong>弱気シナリオ</strong>：PCEが予想を上回れば追加利上げ観測が一段と強まり、実質金利の上昇とドル高が重なって金は3,800ドル台へ続落。銀は工業需要鈍化懸念も加わりアウトパフォームの下落が続く。<br><br><strong>強気シナリオ</strong>：市場が利上げ観測を過大評価しているならPCEの下振れで急速な巻き戻しが発生。中国が2年ぶりの高水準で現物買いを継続しており、この「逆張り実需」が下値を限定する可能性がある。ETFフローやCOT（投機筋ポジション）でネットショートが極端な水準に達していれば、踏み上げ相場に転じるリスクも排除できない。<br><br><h3>今週の最重要イベント</h3><br><br>```<br>今週金曜日 → PCE（個人消費支出）発表　← 最大のスイングファクター<br>来週      → FRB会合・政策決定<br>```<br><br>中東情勢は「イラン和平配当」で一時的に安全資産需要が後退しているが、地政学リスクは再燃しやすく、金の下値を支える潜在要因として引き続き監視が必要だ。短期の方向性を決めるのはPCEの数字一本——強弱どちらのシナリオにも備えてポジション管理を行うことが現時点での最善策といえる。</div>
+                    <div class="detail-content"><h3>金・銀急落：FOMCと実質金利が焦点、27%下落でも強気シナリオは消えず</h3><br><br><strong>2026年6月25日</strong><br><br>金と銀の価格が大幅な調整局面を迎えている。金は前週比5%超、銀は13.5%超の下落を記録し、6月25日正午（UTC）時点の金スポット価格はビッド<strong>3,990.70ドル</strong>、銀は<strong>57.21ドル</strong>まで下落した。<br><br><h3>現在のスポット価格（2026年6月25日 12:00 UTC時点）</h3><br><br><table><tr><th>金属</th><th>ビッド</th><th>アスク</th><th>前週比</th></tr><tr><td>金</td><td>$3,990.70</td><td>$3,992.70</td><td>**▲5%超**</td></tr><tr><td>銀</td><td>$57.21</td><td>$57.26</td><td>**▲13.5%超**</td></tr><tr><td>プラチナ</td><td>$1,573.74</td><td>$1,577.93</td><td>—</td></tr><tr><td>パラジウム</td><td>$1,174.70</td><td>$1,176.80</td><td>—</td></tr></table><br><br>金は1月28日に記録した史上最高値（5,589ドル）から現時点で<strong>27%超の急落</strong>となる。ただしこの最高値水準は1月の急騰局面を前提とするデータであり、読者による独立した価格検証を推奨する。<br><br><h3>下落の背景：実質金利とドルが本質</h3><br><br>表面上の売り材料はインフレ上昇・堅調な雇用統計・FRB利上げ期待の三点だが、ここには重要な留意点がある。<strong>インフレ上昇は本来、金の買い材料</strong>である。金が売られているのは「インフレ」そのものではなく、インフレ持続が利上げ期待を高め、<strong>実質金利の上昇</strong>を招いているためだ。実質金利の水準とドルインデックス（DXY）の動向は、足元の価格形成において最重要の変数となっている。<br><br>また「1月の投機的過熱の剥落」という解説は直感的にわかりやすいが、「価格が下がったから過熱が剥落した」という循環論法に陥りやすい点には注意が必要だ。1月急騰の背景にあった中央銀行（特に新興国）の金買い需要が継続しているかどうかが、調整の深さを測る独立した指標となる。<br><br><h3>来週のFOMCが最大の分岐点</h3><br><br><table><tr><th>シナリオ</th><th>市場への影響</th></tr><tr><td>**タカ派継続**（利上げ決定・引き締め強化）</td><td>実質金利上昇→金・銀にさらなる下押し圧力</td></tr><tr><td>**ハト派サプライズ**（利上げ停止・利下げ示唆）</td><td>実質金利低下→急反発の可能性</td></tr><tr><td>**地政学リスク再燃**（中東・米中関係）</td><td>安全資産需要の急増→下落トレンドが反転</td></tr></table><br><br><h3>銀の二重構造と注意点</h3><br><br>銀については太陽光パネルを中心とした産業需要が長期的な下支え材料として挙げられることが多い。しかし中国の太陽光パネル過剰供給問題、リサイクル銀の流通量拡大、鉱山生産コストの変化といった供給サイドの要因も価格形成に影響する。銀は金融資産と産業財という<strong>二重の性格</strong>を持つため、単純な需要増加論だけで強気を語るのは早計だ。<br><br><h3>投資家へのインプリケーション</h3><br><br>短期的にはFOMCの結果が最大のボラティリティ要因となる。タカ派姿勢の継続は追加下落リスクを高め、追撃買いには慎重な姿勢が求められる。一方、中長期では金は依然4,000ドル近辺という歴史的高水準にあり、インフレヘッジとしての機能は保持している。ハト派転換や地政学リスク再燃というシナリオが現実化した場合、現在の下落局面は押し目となりうる。弱気・強気どちらの判断においても、<strong>実質金利の方向性</strong>を軸に据えた分析が不可欠だ。</div>
                 </div>
             </div>
         </div>
@@ -319,7 +376,7 @@
             <div class="detail-header">SPACE INDUSTRY STOCKS MARKET NEWS TODAY</div>
             <div class="detail-body">
                 <div class="detail-section">
-                    <div class="detail-content"><h3>宇宙産業株：成長ストーリーの光と影——2026年の投資判断ポイント</h3><br><br>2026年に入り、宇宙産業株が力強い上昇モメンタムを示している。Rocket Lab（RKLB）、AST SpaceMobile（ASTS）、Intuitive Machines（LUNR）が上昇をけん引し、衛星ネットワーク需要の拡大と打ち上げコスト低下が追い風となっている。ただし、華やかな成長ストーリーの裏側には、投資家が冷静に見極めるべき構造的なリスクが潜む。<br><br><h3>主要銘柄データ</h3><br><br><table><tr><th>銘柄</th><th>株価（概算）</th><th>主な強み</th><th>主なリスク</th></tr><tr><td>RKLB（Rocket Lab）</td><td>$85.45</td><td>史上最大規模の打ち上げ契約（2026〜2029年）</td><td>契約相手非公開・キャンセル条項不明</td></tr><tr><td>ASTS（AST SpaceMobile）</td><td>$68.29</td><td>Verizon・AT&T向け農村接続契約</td><td>依然赤字、収益転換時期未定</td></tr><tr><td>LUNR（Intuitive Machines）</td><td>$19.13</td><td>NASA新規契約・月面ロボット事業</td><td>政府予算依存度が高い</td></tr><tr><td>PL（Planet Labs）</td><td>$26.37</td><td>地球観測データサービス</td><td>競合激化・赤字継続</td></tr><tr><td>RDW（Redwire）</td><td>記録的受注残</td><td>宇宙・防衛技術、粗利改善</td><td>受注確度・転換率の開示不足</td></tr></table><br><br><h3>ポジティブ要因</h3><br><br>Rocket Labは複数のNeutron・Electron打ち上げを含む大型契約を獲得し、2029年までの収益視界が広がった。またMotiv Space Systemsの買収により、打ち上げ単体からインフラの垂直統合へと事業モデルを進化させている。ASTSは大手通信キャリアとの契約で商業衛星通信の現実化を示し、米宇宙軍の支援継続と規制緩和期待が投資環境を底上げしている。分散投資の手段としては<strong>Procure Space ETF（UFO）</strong>が主要9銘柄中8銘柄を組み入れており、個別銘柄リスクの軽減に有効だ。<br><br><h3>見落とせないリスク</h3><br><br><strong>契約の実態</strong>：Rocket Labの「史上最大契約」は契約相手が非公開で、解約条項や履行条件の詳細が不明だ。打ち上げ契約はキャンセルリスクが構造的に高く、額面通りに受け取るのは危険である。<br><br><strong>バリュエーションの空白</strong>：現在の強気センチメントは株価モメンタムに依拠しており、PERやEV/EBITDAなどの本質的価値との乖離は検証されていない。かつてのEVバブルとの類似性は否定できない。<br><br><strong>SpaceXデータの二面性</strong>：Starlinkが四半期で32.5億ドルの収益を上げながら宇宙セグメント全体では赤字という事実は、「収益化の限界」ではなく「巨大設備投資フェーズの赤字」と解釈すべきだ。同一データが強弱両方の根拠になり得る点に注意が必要だ。なお、SpaceXは非上場であり、この数値の独立検証は困難である。<br><br><strong>競合環境</strong>：Blue Origin、中国CNSAおよび民間勢力、欧州Ariane 6、インドISROなど国家支援を受けた低価格競合の存在が軽視されがちだ。SpaceXの圧倒的なコスト・頻度優位は上場各社にとって最大の競争脅威でもある。<br><br><strong>マクロリスク</strong>：赤字グロース株は金利上昇局面で最も打撃を受けるカテゴリだ。2026年の金利・リスクオフ環境への耐性は十分に評価されていない。<br><br><h3>強気・弱気シナリオ</h3><br><br><strong>強気シナリオ</strong>：打ち上げコスト低下と通信・防衛需要の複合拡大が続き、2027〜2028年にかけてRKLBやASTSが収益転換を達成。Starlink型の反復収益モデル確立が株価の正当化根拠となる。<br><br><strong>弱気シナリオ</strong>：収益化が想定より長期化し、金利高止まりが続く中でバリュエーション調整が発生。大型契約のキャンセルや競合の低価格攻勢が重なれば、セクター全体が急落するリスクがある。<br><br>セクターの成長テーゼは説得力を持つが、「打ち上げ能力の保有」から「継続的キャッシュフローの創出」へ転換できる企業を見極めることが、2026年の投資判断における核心となる。</div>
+                    <div class="detail-content"><h3>宇宙産業株、上昇相場の死角——強気トレンドの裏に潜む構造的リスク</h3><br><br>2026年、宇宙産業株式市場は強い上昇基調にある。だが、熱狂の裏側を精査すると、投資判断を誤らせかねない"見えないリスク"が複数浮かび上がる。<br><br><hr><br><br><h3>主要銘柄の動向</h3><br><br><table><tr><th>銘柄</th><th>主要ニュース</th><th>株価・指標</th></tr><tr><td>**Rocket Lab (RKLB)**</td><td>史上最大契約（Neutron×5、Electron×3）締結、政府補助金2,390万ドル獲得</td><td>85.45ドル（PER・PBR等の評価指標は未開示）</td></tr><tr><td>**AST SpaceMobile (ASTS)**</td><td>宇宙ベースモバイルネットワーク規制承認取得</td><td>年初来プラス圏</td></tr><tr><td>**Redwire (RDW)**</td><td>2026年Q1で記録的受注残・粗利率改善</td><td>年初来プラス圏</td></tr><tr><td>**Procure Space ETF (UFO)**</td><td>対象9社中8社が年初来プラス</td><td>セクター全体で底上げ確認</td></tr></table><br><br>モルガン・スタンレーは宇宙産業の市場規模が現在の約3,500億ドルから2040年に1兆ドルを超えると予測しているが、この数字は<strong>2020年時点の推計</strong>が原典であり、他機関との比較や最新アップデートを欠く点には留意が必要だ。<br><br><hr><br><br><h3>強気シナリオ：追い風は本物か</h3><br><br>Rocket Labの大型契約は2029年までの収益視界を与え、政府との関係強化も示唆する。AST SpaceMobileの規制承認は衛星通信参入の門扉を開いた。ETFの8社同時高は一部銘柄の独歩高ではなくセクター全体の底上げを示唆する。規制緩和志向の現政権方針も追い風だ。<br><br><hr><br><br><h3>弱気シナリオ：見落とされている3つの死角</h3><br><br><strong>第一に、競合環境の非対称性。</strong> 最大の脅威であるSpaceXは非上場のため分析から外れやすいが、Starshipの商業化が進めばNeutronの競争優位は根底から揺らぐ。中国系ロケット企業のコスト競争力も無視できない。<br><br><strong>第二に、財務の実態が見えない。</strong> 受注残の拡大は好材料だが、固定契約とオプション契約の比率、キャッシュバーン率、資金調達余命といった本質的指標は開示されていない。Rocket Labへの補助金2,390万ドルも、年間支出規模との対比なしでは影響度を判断できない。<br><br><strong>第三に、「承認＝事業成立」ではない。</strong> AST SpaceMobileの規制承認は重要な節目だが、実用カバレッジ展開には追加衛星打ち上げと莫大な資本支出が不可欠だ。AT&Tなど大手通信との協業交渉の行方次第では、商業化が大幅に遅れるリスクがある。<br><br><hr><br><br><h3>バリュエーション崩壊シナリオ</h3><br><br>```<br>トリガー　：金利上昇 / Neutron初号機の失敗・遅延 / SpaceX IPOによる資金吸収<br>結果　　　：センチメント急反転 → 85ドル台から40ドル台への急落<br>参照事例　：2021〜2022年のARK系グロース株の崩落パターン<br>```<br><br>宇宙グロース株は"期待の先食い"で高評価される性質を持つ。2040年という遠い地平に向けた予測に乗っかる以上、マクロ金利環境とNASA予算の議会承認動向は常時モニタリングすべき変数だ。<br><br><hr><br><br><strong>【投資判断の視点】</strong> 短期の強気トレンドは実需に裏打ちされた部分もある。しかし株価の定量的評価指標が乏しく、競合リスクと財務の透明性に課題が残る現状では、セクターETF（UFO）での分散投資を軸に、個別銘柄への集中投資は財務開示の精査後に判断するアプローチが現実的だろう。</div>
                 </div>
             </div>
         </div>
@@ -328,7 +385,7 @@
             <div class="detail-header">US ECONOMIC POLICY FED INTEREST RATES CPI NFP PCE MARKET IMPACT TODAY</div>
             <div class="detail-body">
                 <div class="detail-section">
-                    <div class="detail-content"><h3>FRB、4会合連続で金利据え置き―タカ派姿勢鮮明も不確実性は高い</h3><br><br><strong>2026年6月</strong> — 米連邦準備制度理事会（FRB）は6月会合で政策金利を<strong>3.50〜3.75%</strong>に据え置いた。ただしケビン・ウォーシュ新議長のもと声明はタカ派色を強め、インフレが「想定より粘着的」との認識を「明確かつ全会一致」で表明した。先物市場は<strong>10月の利上げを完全に織り込み</strong>、2026年内の利下げ期待は消滅した。<br><br><hr><br><br><h3>主要指標の現状</h3><br><br><table><tr><th>指標</th><th>直近値</th><th>目標/前回</th></tr><tr><td>政策金利</td><td>3.50〜3.75%</td><td>据え置き（4会合連続）</td></tr><tr><td>CPI（前年比）</td><td>4.2%</td><td>目標2%</td></tr><tr><td>コアCPI（前年比）</td><td>2.9%</td><td>—</td></tr><tr><td>コアPCE（前年比）</td><td>3.3%</td><td>目標2%</td></tr><tr><td>PCE予測（2026年）</td><td>3.6%</td><td>前回予測2.7%</td></tr><tr><td>GDP成長率予測（2026年）</td><td>2.2%</td><td>前回予測2.4%</td></tr></table><br><br>なお、PCE予測（3.6%）がコアCPI（2.9%）を上回る構図は統計的に異例であり、予測の前提条件については引き続き精査が必要だ。<br><br><hr><br><br><h3>市場への即時影響</h3><br><br>主要3指数は声明公表直後に<strong>約1%下落</strong>。短期国債利回りは上昇し、米ドル指数は<strong>1%高</strong>となった。雇用は引き続き堅調で最大雇用の達成は維持されているが、GDP成長率の下方修正と高インフレの併存はスタグフレーション的環境への警戒を高めている。中東情勢に起因する原油高もインフレ上振れリスクを複雑化させている。<br><br><hr><br><br><h3>強気・弱気 両シナリオ</h3><br><br><strong>弱気シナリオ（ベースケース）</strong>：インフレの粘着性が続けば19名中9名が支持する年内追加利上げが現実化。金融引き締めが長期化し、株式・長期債は下押し圧力にさらされる。ドル高継続で新興国や多国籍企業にも逆風となる。<br><br><strong>強気シナリオ（リスク）</strong>：地政学プレミアムの縮小や住宅コスト（帰属家賃）のラグ効果剥落でインフレが急減速すれば、10月利上げ織り込みは急速に巻き戻される。また、成長率が想定以上に落ち込んだ場合、FRBは利上げより景気支持を優先せざるを得ない局面に追い込まれる可能性もある。新議長が「柔軟性」を示すことで信任を獲得する戦略も排除できない。<br><br><hr><br><br><h3>投資家への示唆</h3><br><br>利下げ前提で積み上げた<strong>債券ロング・グロース株ポジション</strong>は見直しを迫られる局面だ。防衛的な選択肢としてドル資産・短期債・エネルギーセクターへの分散が浮上する。ただし、ECBや日銀との政策乖離拡大、国内信用市場の動向、財政赤字の拡大といった二次効果にも注視が必要であり、<strong>次回7月のCPI・PCEデータ</strong>が政策軌道を左右する最重要指標となる。</div>
+                    <div class="detail-content"><h3>FRB、金利据え置きもタカ派転換——「higher for longer」再浮上で市場に動揺</h3><br><br><strong>【重要免責事項】本記事は2026年6月を舞台とした仮説的シナリオに基づく分析です。登場する数値・人名・政策判断は現実（2025年時点）と異なります。投資判断の際は実際のデータをご確認ください。</strong><br><br><hr><br><br>米連邦準備制度理事会（FRB）は仮説的な2026年6月のFOMCで、政策金利を<strong>3.50%〜3.75%に据え置いた</strong>。しかし声明文はタカ派色が濃く、10月・12月の追加利上げを強く示唆。新議長ケビン・ウォーシュ体制の初采配は、市場が抱いていた「年内利下げ期待」を完全に封じ込めた。<br><br><hr><br><br><h3>主要データ一覧</h3><br><br><table><tr><th>指標</th><th>数値</th><th>評価</th></tr><tr><td>政策金利（現状）</td><td>3.50〜3.75%</td><td>据え置き</td></tr><tr><td>5月CPI（前年比）</td><td>4.2%</td><td>目標2%を大幅超過</td></tr><tr><td>コアPCE</td><td>3.3%</td><td>高止まり</td></tr><tr><td>FRB改訂PCE予測</td><td>3.6%</td><td>上方修正</td></tr><tr><td>利上げ支持人数</td><td>9名</td><td>年内1回以上</td></tr><tr><td>株式3指数</td><td>−1%超</td><td>リスクオフ</td></tr><tr><td>ドル指数</td><td>+1%</td><td>高金利観測で上昇</td></tr></table><br><br>ただしCPI 4.2%という数値は解釈に注意を要する。それが<strong>上昇トレンド途上か、鈍化途中の通過点か</strong>で政策の適否は大きく変わる。住居費・サービス・財それぞれのインフレ寄与度や前月比推移が示されなければ、タカ派姿勢が「適切な引き締め」か「過剰反応」かの判断はできない。<br><br>また、雇用側データの欠落も見逃せない。FRBの使命は物価安定と最大雇用の<strong>二本柱</strong>だが、失業率・賃金上昇率・求人件数への言及がない状態でタカ派姿勢を評価することは片手落ちだ。<br><br><hr><br><br><h3>強気・弱気シナリオ</h3><br><br><strong>🔴 弱気シナリオ（メインケース）</strong><br>9名の当局者が年内利上げを支持し、高金利長期化が確定的となれば、グロース株・不動産・新興国市場への逆風が継続。ドル高は円・人民元など主要通貨を圧迫し、米国債の主要保有国である日本・中国の運用行動にも変化をもたらす可能性がある。財政赤字拡大との相乗効果で長期金利がさらに上昇するリスクも拭えない。<br><br><strong>🟢 強気シナリオ（反転条件）</strong><br>インフレが夏以降に明確な鈍化トレンドを示せば、FRBは10月利上げを見送る可能性がある。今回の決定がどの程度「市場のサプライズ」だったかも重要だ。FF金利先物が既に利上げを相当程度織り込んでいたなら、追加的なショックは限定的となりうる。<br><br><hr><br><br><h3>見落とせないリスク要因</h3><br><br>ウォーシュ新議長が就任直後にタカ派姿勢を鮮明にしたことで、政権・議会との摩擦やFRBの独立性への圧力が生じる政治リスクも浮上する。エネルギー高騰と中東情勢は<strong>金融政策では制御不能な外生要因</strong>であり、利上げが景気を冷やしてもインフレ高止まりが続くスタグフレーション的シナリオも排除できない。<br><br>市場参加者が今すぐ確認すべきは、①インフレの構成要素と鈍化の有無、②労働市場の軟着陸度合い、③FF金利先物の織り込み水準——この三点である。</div>
                 </div>
             </div>
         </div>
@@ -337,7 +394,7 @@
             <div class="detail-header">BITCOIN CRYPTOCURRENCY MARKET NEWS TODAY</div>
             <div class="detail-body">
                 <div class="detail-section">
-                    <div class="detail-content"><h3>ビットコイン、6万ドル攻防――強制清算8.5億ドル超で売り圧力加速</h3><br><br>ビットコイン（BTC）は主要サポートラインとして注目されてきた<strong>6万ドルを割り込み</strong>、約59,023ドルまで下落した。直近24時間で3.10%安、週間では5.80%安と、暗号資産市場全体の下落率（2.20%）を大幅に上回るアンダーパフォームが続いている。<br><br><hr><br><br><h3>現在の市場データ</h3><br><br><table><tr><th>指標</th><th>数値</th></tr><tr><td>現在値</td><td>約59,023ドル</td></tr><tr><td>24時間騰落率</td><td>**-3.10%**</td></tr><tr><td>週間騰落率</td><td>**-5.80%**</td></tr><tr><td>強制清算額（24時間）</td><td>**8億5千万ドル超**</td></tr><tr><td>24時間取引量</td><td>**420億ドル超（前日比+37.3%）**</td></tr><tr><td>BTCドミナンス</td><td>**55.88%**</td></tr><tr><td>市場全体騰落率</td><td>-2.20%</td></tr></table><br><br><hr><br><br><h3>売り圧力の構造</h3><br><br>下落を主導しているのは、<strong>ETFからの継続的な資金流出</strong>とマクロ経済の逆風だ。8億5千万ドルを超える強制清算がレバレッジポジションを連鎖的に解消させ、下値を押し広げた。BTCは長期下降レジスタンスラインの下での修正フェーズにあり、テクニカル面でも上値の重さが意識される。<br><br>注目すべきは取引量の急増だが、<strong>解釈には慎重さが必要</strong>だ。出来高の37.3%増は底値圏での買い手参入を示唆する可能性がある一方、<strong>売り方の急増でも同様の数値となる</strong>ため、一方的に強気シグナルとは判断できない。<br><br><hr><br><br><h3>シナリオ別の価格見通し</h3><br><br><strong>【弱気シナリオ】</strong> 6万ドル割れが週足で定着した場合、次のサポートとして<strong>55,000ドル→50,000ドル</strong>が意識される。一部アナリストは2026年末にかけ42,000〜44,000ドルまでの調整を予測するが、これは短期見通しとは時間軸が大きく異なる長期シナリオである点に留意が必要だ。また、マイナーの採算ラインは推定55,000〜65,000ドルとされており、この水準への接近は<strong>採掘コスト面での下値支持力</strong>を意識させる。<br><br><strong>【強気シナリオ】</strong> FRBの予想外の利下げ示唆やオンチェーン指標（MVRV・NVT比率）の過売られシグナル、あるいは半減期サイクルの上昇局面との重なりが確認された場合、急速な反発が起きうる。BTCドミナンスが55%超を維持していることは、資金がアルトコインに分散せずBTCに集中している点で<strong>相対的な底堅さ</strong>を示している。<br><br><hr><br><br><h3>機関投資家と業界動向</h3><br><br><strong>BlackRockがBTCのポートフォリオ推奨比率を1〜2%とする見解を示した</strong>ことが報じられているが、これが現在の保有比率からの増加・減少・維持いずれを意味するかは文脈が不明確であり、「機関投資家の慎重化」と即断するのは早計だ。むしろ<strong>伝統的資産クラスへの組み込み議論が継続している</strong>と読むこともできる。<br><br>RippleとSBIによるRLUSD日本展開は、規制対応型ステーブルコインのアジア普及という文脈では注目材料だが、BTC価格への直接的な影響経路は限定的だ。米財務省による100億ドル規模の詐欺警告は、暗号資産業界全体への規制圧力強化につながる可能性がある。<br><br><hr><br><br><h3>総合判断</h3><br><br><strong>短期トレンドは明確に弱気</strong>であり、6万ドルを週足で回復できるかが当面の分水嶺となる。ただし、米国金利動向・半減期サイクルとの位置関係・オンチェーンデータといった<strong>マクロ・ファンダメンタル要因が反発の起爆剤となり得る</strong>ことも見落とせない。売買判断に際しては、レバレッジを抑制しつつ複数の時間軸とデータソースを横断的に確認することが肝要だ。</div>
+                    <div class="detail-content"><h3>ビットコイン、6万ドル攻防――強気と恐怖が交錯する市場の実相</h3><br><br>ビットコイン（BTC）は直近24時間で約3.1%下落し、6万729ドル付近と2024年10月以来の安値圏に沈んだ。暗号資産市場全体の下落率（2.2〜3.5%）を上回るアンダーパフォームが続いており、BTCが市場の下落を主導する異例の展開となっている。<br><br><hr><br><br><h3>主要指標</h3><br><br><table><tr><th>項目</th><th>数値・状況</th></tr><tr><td>直近価格</td><td>約6万730ドル（24h: −3.1%、週次: −5.8%）</td></tr><tr><td>Fear & Greedインデックス</td><td>極度の恐怖</td></tr><tr><td>ETFネットフロー（24h）</td><td>−1億1,400万ドル（IBIT単独−1億8,200万ドル）</td></tr><tr><td>ロング強制清算額</td><td>約2億3,700万ドル</td></tr><tr><td>24h取引量</td><td>約412億ドル（前日比+37%）</td></tr><tr><td>次の主要サポート</td><td>5万5,000ドル（10xリサーチ試算）</td></tr></table><br><br><hr><br><br><h3>弱気シナリオ：連鎖清算と流動性悪化</h3><br><br>最大のリスクは清算連鎖だ。6万ドルのサポート割れを受け、6月30日前後に追加の強制清算が波及するとの警戒が広がっている。10xリサーチはFRBのタカ派姿勢が流動性を締め付けるとして、5万5,000ドルへのストレステストを想定する。<br><br>ただし因果関係には注意が必要だ。「ETF流出が下落を招いた」と報じられているが、逆に「価格下落がETF換金売りを誘発した」可能性も同等にある。取引量の急増も単純な売り圧力とは断定できず、大口の買い集めが並行している可能性も排除できない。またFRBのタカ派転換については、市場がすでに相当程度を織り込んでいるとの見方もある。<br><br><hr><br><br><h3>強気シナリオ：サイクル論とオンチェーンの逆張りシグナル</h3><br><br>一方、中長期投資家には異なる景色が見えている。2024年4月の半減期を起点にすると、過去3回の半減期サイクルではいずれも6〜18カ月以内に高値を更新しており、現在の下落は「押し目」に当たるとするサイクル論者も多い。<br><br>また一部アナリストはオンチェーン指標（具体的な指標名は現時点で未確認）が割安水準を示唆していると指摘するが、この見方の信頼性は使用指標と測定方法によって大きく異なる。ETFからの資金がOTC市場での機関投資家買いへシフトしている可能性も、過去サイクルで見られたパターンとして注目に値する。<br><br><hr><br><br><h3>構造的な不確実性</h3><br><br>政策面では米上院の暗号資産課税法案が2026年秋まで先送りとなる見通しで、CLARITY法案も上院休会で足踏みしている。規制の明確化は強気材料になり得るが、現時点では見通しが立たない。ドル指数や米国債利回りとの相関といったマクロ要因も、「リスクオフ」の深度を測る上で引き続き注視が必要だ。<br><br><strong>短期トレーダーにとっての鍵は5万5,000〜6万1,000ドルのレンジ維持、中長期投資家にとっての論点はサイクル論の有効性と半減期後の需給構造</strong>——同じ価格データから全く異なる結論が導かれる、まさに「正真正銘の攻防地点」にある。</div>
                 </div>
             </div>
         </div>
